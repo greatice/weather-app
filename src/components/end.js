@@ -7,6 +7,6 @@ export default class EndPart extends React.Component{
     }
 
     render(){
-        return <div> End Sections</div>
+        return <div className = 'end-container'> End Sections</div>
     }
 }

@@ -29,7 +29,7 @@ html,body,#root{
 
 .front-part{
   flex:50%;
-  background-color: rgb(102, 156, 156);
+  background-color: rgb(156, 128, 102);
   border-radius: 10px 10px 0px 0px;
 
 }
@@ -37,12 +37,60 @@ html,body,#root{
     display:flex;
     flex-direction: column;
     font-family: Helvetica;
+    align-items: center; 
+    /* the font in the center and left justifying */
 }
 .title{
   color: rgb(69, 69, 70);
   font-size: 30px;
-  text-align: center;
   margin-top:5px;
+}
+.weather-container{
+  margin-top: 40px;
+}
+.front{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size:25px;
+  margin-top: 10px;
+}
+.inside-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: rgb(55, 114, 73);
+  margin-top: 10px;
+  font-size: 22px;
+}
+.end{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size:25px;
+  margin-top: 10px;
+}
+.image{
+  width:30px;
+  height:30px;
+}
+.image img{
+    width:100%;
+    height:100%;
+}
+.weather-degree{
+  font-size:30px;
+  margin-left:15px;
+}
+.search{
+  border:1px solid rgb(97, 86, 86);
+  margin: 20px;
+  width:150px;
+  height:30px;
+  font-size: 22px;
+  border-radius: 10px;
+  background-color: rgb(139, 137, 137);
+  cursor: pointer;
 }
 
 .end-part{
