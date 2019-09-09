@@ -14,8 +14,38 @@ html,body,#root{
   display:flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .main-container{
-  text-align: center;
+  min-width: 85%;
+  height: 80%;
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid black;
+  box-shadow: 8px 8px rgb(73, 73, 73);
+  flex-direction: column;
 }
+
+.front-part{
+  flex:50%;
+  background-color: rgb(102, 156, 156);
+  border-radius: 10px 10px 0px 0px;
+
+}
+.front-part .front-container {
+    display:flex;
+    flex-direction: column;
+    font-family: Helvetica;
+}
+.title{
+  color: rgb(69, 69, 70);
+  font-size: 30px;
+  text-align: center;
+  margin-top:5px;
+}
+
+.end-part{
+  flex:50%;
+}
+
