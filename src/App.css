@@ -96,4 +96,11 @@ html,body,#root{
 .end-part{
   flex:50%;
 }
+.end-container{
+  background-image: url('./img/BackPic.jpg');
+  width:100%;
+  height:100%;
+  background-size:cover;
+  border-radius: 0px 0px 10px 10px;
+}
 

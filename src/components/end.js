@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export default class EndPart extends React.Component{
     constructor(props){
         super(props);
@@ -7,6 +8,8 @@ export default class EndPart extends React.Component{
     }
 
     render(){
-        return <div className = 'end-container'> End Sections</div>
+        return <div className = 'end-container'> 
+        
+        </div>
     }
 }
