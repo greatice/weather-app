@@ -10,7 +10,7 @@ export default class FrontPart extends React.Component{
     render(){
         return <div className='front-container'> 
             <div className='title'>Weather-App</div>
-            <Weather />
+            <Weather {...this.props} />
             <button className='search'>
                 City Search
             </button>
