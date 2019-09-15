@@ -5,24 +5,33 @@ import { Manager, Reference, Popper } from 'react-popper';
 export default class FrontPart extends React.Component{
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {
+            buttonPress : false,
+        };
     }
 
 
     render(){
+        const {buttonPress} = this.state;
         return <div className='front-container'> 
             <div className='title'>Weather-App</div>
             <Weather {...this.props} />
             <Manager>
                 <Reference>
                 {({ ref }) => (
-                    <button className='search' ref={ref}>
+                    <button className='search' ref={ref} onClick={()=>{
+                        this.setState(
+                            (prevState) => ({
+                                buttonPress: !prevState.buttonPress
+                            })
+                        );
+                    }}>
                         City Search
                     </button>
                 )}
                 </Reference>
                 <Popper placement="top">
-                {({ ref, style, placement, arrowProps }) => (
+                {({ ref, style, placement, arrowProps }) => ( buttonPress &&
                     <div ref={ref} style={style} data-placement={placement}>
                     Popper element
                     <div ref={arrowProps.ref} style={arrowProps.style} />
