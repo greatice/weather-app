@@ -7,12 +7,12 @@ export default class Weather extends React.Component{
         
     }
     render(){
-        const {place,temp_c,is_Day,text,icon} = this.props;
+        const {city,temp_c,is_Day,text,icon} = this.props;
         
 
         return <div className ='weather-container'>
             <div className='front'>
-                    {place}
+                    {city}
             </div>
             <div className ='inside-container'>
                 <div className='image'>

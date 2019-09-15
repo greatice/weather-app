@@ -23,10 +23,13 @@ class App extends React.Component {
       (res) =>{
       return res.data;
       }
+      
+    
     )
     .then(
       (data)=>{
         this.setState({
+        place: data.location.name,
         temp_c: data.current.temp_c, 
         is_Day: data.current.is_Day, 
         text: data.current.condition.text, 
@@ -41,12 +44,12 @@ class App extends React.Component {
   }
 
   render(){
-    const {isTrue,city,temp_c,is_Day,text,icon} = this.state;
+    const {isTrue,place,temp_c,is_Day,text,icon} = this.state;
 
     return <div className='app-container'>
       <div className='main-container'>
         <div className= "front-part">
-        <FrontPart city={city} temp_c={temp_c} is_Day={is_Day} text={text} icon={icon} />
+        <FrontPart city={place} temp_c={temp_c} is_Day={is_Day} text={text} icon={icon} />
         </div>
       <div className= "end-part">
       <EndPart />
