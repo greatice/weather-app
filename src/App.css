@@ -105,3 +105,31 @@ html,body,#root{
   border-radius: 0px 0px 10px 10px;
 }
 
+.dialog-container{
+  will-change: transform;
+  margin:0,auto;
+  transform: translate3d(487px,177px,0px);
+  width: 200px;
+  height: 100px;
+  display: flex;
+  border-radius: 8px;
+  background-color: rgb(95, 95, 94);
+  box-shadow: 0px 0px 3px 3px darkgray;
+  font-size:16px;
+}
+
+
+.table-container label{
+  text-align: center;
+  margin-left:10px;
+  width:100%;
+  margin:0,auto;
+}
+.table-container input{
+  text-align: center;
+  margin-left:10px;
+  margin-right:10px;
+  width:90%;
+  margin-top: 5px;
+  height: 25px;
+}

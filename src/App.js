@@ -5,7 +5,7 @@ import FrontPart from './components/front.js'
 import EndPart from './components/end.js'
 import Axios from 'axios';
 
-const API_KEY = '05fa14e773434825be0193343191301';
+const API_KEY = '05fa14e773434825be0193343191301'; 
 
 class App extends React.Component {
   constructor(props){
@@ -19,6 +19,9 @@ class App extends React.Component {
   componentDidMount(){
     const {cityName,forcastDays} = this.state;
     const URL = `https://api.apixu.com/v1/forecast.json?key=${API_KEY}  &q=${cityName} &days=${forcastDays}`;
+    
+    const {eventEmmiter} = this.props;
+
     Axios.get(URL).then(
       (res) =>{
       return res.data;
@@ -29,7 +32,7 @@ class App extends React.Component {
     .then(
       (data)=>{
         this.setState({
-        place: data.location.name,
+        cityName: data.location.name,
         temp_c: data.current.temp_c, 
         is_Day: data.current.is_Day, 
         text: data.current.condition.text, 
@@ -41,15 +44,19 @@ class App extends React.Component {
       if (err)
       console.error('Weather info cannot found',err);
     });
+    eventEmmiter.on('location', (data)=>{
+      this.setState({cityName: data});
+      console.log('location:', data);
+    } )
   }
 
   render(){
-    const {isTrue,place,temp_c,is_Day,text,icon} = this.state;
+    const {isTrue,cityName,temp_c,is_Day,text,icon} = this.state;
 
     return <div className='app-container'>
       <div className='main-container'>
         <div className= "front-part">
-        <FrontPart city={place} temp_c={temp_c} is_Day={is_Day} text={text} icon={icon} />
+        <FrontPart city={cityName} temp_c={temp_c} is_Day={is_Day} text={text} icon={icon} eventEmmiter={this.props.eventEmmiter}/>
         </div>
       <div className= "end-part">
       <EndPart />

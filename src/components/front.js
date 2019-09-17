@@ -1,7 +1,7 @@
 import React from "react";
 import Weather from "./weather";
 import { Manager, Reference, Popper } from 'react-popper';
-//use react-popper to 
+//use react-popper added to the button
 export default class FrontPart extends React.Component{
     constructor(props){
         super(props);
@@ -11,8 +11,9 @@ export default class FrontPart extends React.Component{
     }
 
 
-    render(){
+    render(){ 
         const {buttonPress} = this.state;
+        //const { eventEmmiter } = this.props;
         return <div className='front-container'> 
             <div className='title'>Weather-App</div>
             <Weather {...this.props} />
@@ -21,9 +22,9 @@ export default class FrontPart extends React.Component{
                 {({ ref }) => (
                     <button className='search' ref={ref} onClick={()=>{
                         this.setState(
-                            (prevState) => ({
-                                buttonPress: !prevState.buttonPress
-                            })
+                            (prevState) => { 
+                               return { buttonPress: !prevState.buttonPress }
+                            }
                         );
                     }}>
                         City Search
@@ -32,8 +33,29 @@ export default class FrontPart extends React.Component{
                 </Reference>
                 <Popper placement="top">
                 {({ ref, style, placement, arrowProps }) => ( buttonPress &&
-                    <div ref={ref} style={style} data-placement={placement}>
-                    Popper element
+                    <div className = 'dialog-container' ref={ref} style={style} data-placement={placement}>
+                        <div className='table-container'>
+                            <label htmlFor="city-name">
+                                Input City Name:
+                            </label>
+                            <input 
+                                id='city-name'
+                                type=''
+                                placeholder='City Name'
+                                onChange={
+                                   (e)=> this.setState({cityName: e.target.value})
+                                }
+                            />
+                            <button className='search' 
+                            onClick={()=>{
+                                            const {cityName} = this.state;
+                                            const { eventEmmiter } = this.props;
+                                            eventEmmiter.emit('location', cityName);
+                                        }
+                                    } >
+                                Submit
+                            </button>
+                        </div>
                     <div ref={arrowProps.ref} style={arrowProps.style} />
                     </div>
                 )}
