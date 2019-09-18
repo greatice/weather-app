@@ -51,6 +51,7 @@ export default class FrontPart extends React.Component{
                                             const {cityName} = this.state;
                                             const { eventEmmiter } = this.props;
                                             eventEmmiter.emit('location', cityName);
+                                            this.setState({buttonPress: false}); //when finished search, the popper will disappear and show the weather on main screen
                                         }
                                     } >
                                 Submit
